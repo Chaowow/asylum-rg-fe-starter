@@ -41,17 +41,53 @@
     font-size: 1.2rem;
 }
 
-// .graphs-section {
-//  ADD THIS BACK IN WHEN YOU HAVE THE GRAPHS SECTION
-// }
+.graphs-section {
+    display: flex; /* Use flexbox layout */
+    flex-wrap: wrap; /* Allow graphs to wrap onto multiple lines */
+    justify-content: space-around; /* Horizontally space graphs evenly */
+    align-items: center; /* Center elements horizontally */
+  }
 
-.view-more-data-btn-container {
+.graph-container, .graph-container-mid {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; 
+}
+
+.graph-container img {
+    max-width: 60%; /* Limit image width */
+    margin-bottom: 1.2rem; /* Add spacing below image */
+}
+
+.graph-container-mid img {
+    max-width: 61%; /* Make the middle image align with right and left images */
+    margin-bottom: 1.2rem;
+}
+
+.graph-container h3, .graph-container-mid h3 {
+    text-align: center; /* Center text */
+    font-size: 1.5rem;
+    font-family: 'beatrice regular'; /* Use specified font family */
+}
+
+.btn-container {
+    text-align: center; /* Center the buttons horizontally */
+  }
+  
+.view-more-data-btn-container,
+.download-data-btn-container {
+    display: inline-block; /* Display buttons inline */
+    vertical-align: middle; /* Align buttons vertically */
     height: 44px;
     width: 180px;
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 10%;
+    margin-bottom: 10%; /* Add spacing below buttons */
+    margin-top: 3.25%; /* Add spacing above buttons */
+    font-family: 'Arial'
 }
+
+.download-data-btn-container {
+    margin-left: -20px; /* Adjust spacing between buttons */
+  }
 
 .middle-section {
     display: flex;
@@ -75,11 +111,58 @@
     font-size: 1.4rem;
 }
 
-// .bottom-section {
-//      ADD THIS BACK IN WHEN YOU HAVE A BOTTOM SECTION
-// }
+.bottom-section {
+    flex-wrap: wrap; /* Allow content to wrap onto multiple lines */
+    justify-content: space-around; /* Horizontally space content evenly */
+    align-items: center;
+    font-family: 'beatrice regular';
+}
+
+.bottom-section h2 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 10rem;
+    margin-bottom: 8rem;
+}
+
+.insights-wrapper {
+    display: flex;
+    flex-wrap: wrap; // Allow flex items to wrap onto multiple lines
+    justify-content: center; // Align items horizontally at the center
+  }
+  
+
+.insights-container {
+    flex: 0 0 25%; /* Adjust the width of each container */
+    margin: 3rem; /* Add margin around each container */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align items at the start of the container */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text */
+}
+
+.insights-container h3 {
+    font-size: 3.25rem;
+    min-height: 4rem; /* Set minimum height */
+    margin-bottom: 1rem;
+}
+
+.insights-container p {
+    font-size: 1.35rem;
+}
+
+.read-more-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-family: 'Arial';
+}
 
 .back-to-top {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
     width: 8%;
     font-size: 1.2rem;
     cursor: pointer;
