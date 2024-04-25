@@ -7,6 +7,12 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import { useAuth0 } from '@auth0/auth0-react'; // Importing useAuth0 hook from Auth0 React SDK
+import Auth0ProviderWithHistory from '../src/auth/auth0-provider-with-history'; // Importing custom Auth0ProviderWithHistory component
+import Profile from '../src/views/profile'; // Importing Profile component
+import Loading from './components/common/loading'; // Importing Loading component
+import ProtectedRoute from './auth/protected-route'; // Importing ProtectedRoute component
+
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
@@ -28,17 +34,26 @@ const { primary_accent_color } = colors;
 const store = configureStore({ reducer: reducer });
 ReactDOM.render(
   <Router>
-    <Provider store={store}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </Provider>
+    <Auth0ProviderWithHistory>
+      <Provider store={store}>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Provider>
+    </Auth0ProviderWithHistory>
   </Router>,
   document.getElementById('root')
 );
 
 export function App() {
   const { Footer, Header } = Layout;
+
+  const { isloading } = useAuth0();
+
+  if (isloading) {
+    return <Loading />;
+  }
+
   return (
     <Layout>
       <Header
@@ -54,6 +69,8 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
+        {/* Rendering a ProtectedRoute component for the "/profile" path, which renders the Profile component only if the user is authenticated */}
+        <ProtectedRoute path="/profile" component={Profile} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer

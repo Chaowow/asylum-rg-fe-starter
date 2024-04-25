@@ -8,6 +8,41 @@
 @tablet-large: ~"(min-width: 769px) and (max-width: 1024px)";
 @laptop: ~"(min-width: 1025px) and (max-width: 1280px)";
 
+/* Log in, log out, and sign up styling */
+.login-btn, .logout-btn, .sign-up-btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: @main-color; 
+    color: #fff;
+}
+
+/* Profile styling */
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.profile-picture {
+    width: 100px; 
+    height: auto;
+    border-radius: 50%;
+    margin-right: 30px; 
+}
+
+.profile-info h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.profile-info p {
+    color: #666;
+    margin-bottom: 0;
+}
+
 .header {
     background-color: @main-color;
     display:flex;
